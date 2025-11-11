@@ -2,6 +2,6 @@ await db.query(`
      create table block (
         hash       numeric,
         timestamp  timestamp,
-        block-id   integer
+        block_id   integer
     );
 `);
