@@ -1,29 +1,4 @@
 await db.query(`
-    drop table if exists transactions;
-    create table transactions (
-        hash            text,
-        block_id        integer references block (block_id),
-        transaction_id  integer primary key,
-    );
-`); 
-
-await db.query(`
-     create table block (
-        hash       numeric,
-        timestamp  timestamp,
-        block_id   integer
-    );
-`);
-
-await db.query(`
-     create table price (
-        price       numeric,
-        valuta-id   integer, 
-        timestamp   timestamp  
-    );
-`);
-
-await db.query(`
     drop table if exists valuta;
     create table valuta (
     value             numeric,
@@ -47,5 +22,13 @@ await db.query(`
     create table adress (
         adress_id    integer
 
+    );
+`);
+
+await db.query(`
+     create table block (
+        hash       numeric,
+        timestamp  timestamp,
+        block_id   integer
     );
 `);
