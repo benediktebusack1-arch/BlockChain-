@@ -36,7 +36,8 @@ await db.query(`
 await db.query(`
     drop table if exists valuta;
     create table valuta (
-        value             numeric,
+        name              text,
+        symbol            text,
         valuta_id         integer primary key          
 );
 `);
@@ -54,7 +55,7 @@ await db.query(`
     drop table if exists price; 
     create table price (
         price       numeric,
-        valuta_id   integer, 
+        valuta_id   integer references valuta, 
         timestamp   timestamp  
 );
 `);
@@ -69,17 +70,69 @@ await db.query(`
         value               numeric
 );
 `);
-        
+    
+
+await db-query(`
+    insert into block
+    (block_id, hash, timestamps)
+    values
+    (0, '000ffe7', '2025-10-01T07:30:00Z'),
+    (1, '0002a81', '2025-10-03T14:00:00Z'),
+    (2, '0003bb6', '2025-10-09T22:30:00Z')
+`);
+
 await db.query(`
     insert into valuta
-    (valuta_id, value)
+    (valuta_id, name, symbol)
     values
-    (0, 2500),
-    (1, 10),
-    (2, 1)
+    (3, 'Ether', 'ETH'),
+    (4, 'Chainlink', 'LINK'),
+    (5, 'USD Coin', 'USDC'),
+
 );
 `);
 
+await db-query(`
+    insert into price
+    (valuta_id, price, timestamp)
+    values
+    (3, 2500, '2025-10-01T07:30:00Z'),
+    (4, 10, '2025-10-01T07:30:00Z'),
+    (5, 1, '2025-10-01T07:30:00Z'),
+    (3, 2300, '2025-10-03T14:00:00Z'),
+    (4, 9, '2025-10-03T14:00:00Z'),
+    (5, 1, '2025-10-03T14:00:00Z'),
+    (3, 2400, '2025-10-09T22:30:00Z'),
+    (4, 12, '2025-10-09T22:30:00Z'),
+    (5, 1, '2025-10-09T22:30:00Z')
+`);
+
+await db.query(`
+    insert into transactions
+    (hash, block_id, transaction_id) 
+    values
+    ('5ac6', 0, 1),
+    ('78af', 1, 2),
+    ('9cb6', 1, 3),
+    ('04aa', 1, 4),
+    ('af78', 2, 5),
+    ('9033', 2, 6),
+    ('acdf', 2, 7)
+`)
+
+await db.query(`
+    insert into adress
+    (adress_id, adress)
+    values
+    ()
+
+`)
+
+await db.query(`
+    insert into transfer
+
+
+`)
 
 await db.end();
 
