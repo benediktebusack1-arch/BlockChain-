@@ -68,8 +68,6 @@ await db.query(`
         transactions_id     integer references transaction (transaction_id),
         value               numeric
 );
-`);
-        
 
 await db.query(`
     insert into valuta
@@ -79,6 +77,10 @@ await db.query(`
     (1, null),
     (2, null)
 );
+
+`);
+        
+
 
 
 await db.end();
