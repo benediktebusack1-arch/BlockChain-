@@ -45,7 +45,7 @@ await db.query(`
     drop table if exists transactions;
     create table transactions (
         hash            text,
-        block_id        integer references block (block_id),
+        block_id        integer references block,
         transaction_id  integer primary key,
 );
 `); 
@@ -54,7 +54,7 @@ await db.query(`
     drop table if exists price; 
     create table price (
         price       numeric,
-        valuta_id   integer, 
+        valuta_id   integer references valuta, 
         timestamp   timestamp  
 );
 `);
@@ -62,14 +62,16 @@ await db.query(`
 await db.query(`
     drop table if exists transfer;
     create table transfer (
-        sender              integer references address (address_id),
-        reciever            integer references address (address_id), 
-        valuta_id           integer references valuta (valuta_id),
-        transactions_id     integer references transaction (transaction_id),
+        sender              integer references address,
+        reciever            integer references address, 
+        valuta_id           integer references valuta,
+        transactions_id     integer references transaction,
         value               numeric
 );
 `);
         
+
+
 
 
 
