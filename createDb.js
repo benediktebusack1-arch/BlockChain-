@@ -124,15 +124,30 @@ await db.query(`
     insert into adress
     (adress_id, adress)
     values
-    ()
-
+    (6, 'coinbase'),
+    (7, 'a0324425e7'),
+    (8, 'b07c7e7df3'),
+    (9, 'c0acb3be5f'),
+    (10, 'd03894efe8'),
+    (11, 'e000c0d932'),
+    (12, 'f076a8cbb0')
 `)
 
 await db.query(`
     insert into transfer
-
-
+    (valuta_id, transactions_id, sender, reciever, value)
+    values
+    (3, 1, 'coinbase', 'a0324425e7', 5),
+    (3, 2, 'coinbase', 'a0324425e7', 5),
+    (3, 3, 'a0324425e7', 'b07c7e7df3', 2),
+    (3, 3, 'a0324425e7', 'd03894efe8', 2),
+    (3, 4, 'a0324425e7', 'f076a8cbb0', 3),
+    (4, 4, 'f076a8cbb0', 'a0324425e7', 760),
+    (3, 5, 'coinbase', 'c0acb3be5f', 5),
+    (4, 6, 'a0324425e7', 'e000c0d932', 540),
+    (3, 6, 'a0324425e7', 'e000c0d932', 1),
+    (3, 7, 'd03894efe8', 'f076a8cbb0', 1),
+    (5, 7, 'f076a8cbb0', 'd03894efe8', 2390)
 `)
 
 await db.end();
-
