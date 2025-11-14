@@ -1,3 +1,17 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 await db.query(`
     drop table if exists block;
     create table block (
