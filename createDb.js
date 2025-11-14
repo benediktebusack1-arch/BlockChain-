@@ -108,7 +108,7 @@ await db-query(`
 `);
 
 await db.query(`
-    insert into transactions
+    insert into transaction
     (hash, block_id, transaction_id) 
     values
     ('5ac6', 0, 1),
@@ -135,19 +135,19 @@ await db.query(`
 
 await db.query(`
     insert into transfer
-    (valuta_id, transactions_id, sender, reciever, value)
+    (valuta_id, transaction_id, sender, reciever, value)
     values
-    (3, 1, 'coinbase', 'a0324425e7', 5),
-    (3, 2, 'coinbase', 'a0324425e7', 5),
-    (3, 3, 'a0324425e7', 'b07c7e7df3', 2),
-    (3, 3, 'a0324425e7', 'd03894efe8', 2),
-    (3, 4, 'a0324425e7', 'f076a8cbb0', 3),
-    (4, 4, 'f076a8cbb0', 'a0324425e7', 760),
-    (3, 5, 'coinbase', 'c0acb3be5f', 5),
-    (4, 6, 'a0324425e7', 'e000c0d932', 540),
-    (3, 6, 'a0324425e7', 'e000c0d932', 1),
-    (3, 7, 'd03894efe8', 'f076a8cbb0', 1),
-    (5, 7, 'f076a8cbb0', 'd03894efe8', 2390)
+    (3, 1, 6, 7, 5),
+    (3, 2, 6, 7, 5),
+    (3, 3, 7, 8, 2),
+    (3, 3, 7, 10, 2),
+    (3, 4, 7, 12, 3),
+    (4, 4, 12, 7, 760),
+    (3, 5, 6, 9, 5),
+    (4, 6, 7, 11, 540),
+    (3, 6, 7, 11, 1),
+    (3, 7, 10, 12, 1),
+    (5, 7, 12, 10, 2390)
 `)
 
 await db.end();
