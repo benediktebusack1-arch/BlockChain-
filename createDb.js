@@ -74,9 +74,9 @@ await db.query(`
     insert into valuta
     (valuta_id, value)
     values
-    (0, null),
-    (1, null),
-    (2, null)
+    (0, 2500),
+    (1, 10),
+    (2, 1)
 );
 `);
 
