@@ -80,6 +80,25 @@ await db.query(`
 );
 `);
 
+await db.query(`
+    insert into transfer 
+    (sender, reciever, valuta_id, transactions_id, value) values
+
+
+`)
+await db.query(`
+    insert into transactions
+    (hash, block_id, transaction_id) values
+    ('5ac6', 0, 1),
+    ('78af', 1, 2),
+    ('9cb6', 1, 3),
+    ('04aa', 1, 4),
+    ('af78', 2, 5),
+    ('9033', 2, 6),
+    ('acdf', 2, 7);
+
+    
+`)
 
 await db.end();
 
