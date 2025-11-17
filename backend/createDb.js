@@ -1,6 +1,6 @@
 import pg from 'pg';
 import dotenv from 'dotenv';
-import { upload } from 'pg-upload';
+
 
 dotenv.config();
 console.log('Connecting to database', process.env.PG_DATABASE);
